@@ -1,6 +1,28 @@
 
 # **Diretrizes de Implementação do Scrum na UniFil Computação**
 
+## Sumário
+
+- [1. Visão Geral](#1-visão-geral)
+- [2. Objetivos da Implementação](#2-objetivos-da-implementação)
+- [3. Ferramentas que Você Irá Utilizar](#3-ferramentas-que-você-irá-utilizar)
+- [4. Estrutura do Projeto](#4-estrutura-do-projeto)
+  - [4.1 Documentos Necessários](#41-documentos-necessários)
+  - [4.2 Estrutura das Sprints](#42-estrutura-das-sprints)
+    - [Bimestre 1: Preparação e Planejamento](#bimestre-1-preparação-e-planejamento)
+    - [Bimestre 2: Desenvolvimento Inicial](#bimestre-2-desenvolvimento-inicial)
+    - [Bimestre 3: Desenvolvimento Intermediário](#bimestre-3-desenvolvimento-intermediário)
+    - [Bimestre 4: Finalização e Entrega](#bimestre-4-finalização-e-entrega)
+- [5. Regras e Políticas do Projeto](#5-regras-e-políticas-do-projeto)
+  - [5.1 Reuniões de Revisão](#51-reuniões-de-revisão)
+  - [5.2 Reuniões de Planejamento](#52-reuniões-de-planejamento)
+  - [5.3 Revisões de Código e Documentação](#53-revisões-de-código-e-documentação)
+  - [5.4 Atualizações no Kanban](#54-atualizações-no-kanban)
+  - [5.5 Adaptações e Mudanças](#55-adaptações-e-mudanças)
+- [6. Finalização do Projeto](#6-finalização-do-projeto)
+
+---
+
 ## **1. Visão Geral**
 
 Bem-vindo ao projeto de estágio obrigatório da UniFil Computação! Este documento foi criado para orientá-lo na aplicação da metodologia ágil Scrum durante o desenvolvimento do seu projeto. Ao longo do próximo ano acadêmico, você terá a oportunidade de vivenciar as práticas de desenvolvimento ágil, dividindo o trabalho em sprints e utilizando ferramentas modernas como GitHub, Kanban e Gantt para gerenciar o progresso do projeto.
@@ -107,27 +129,6 @@ No final do projeto, todos os documentos, código, e demais entregas deverão es
 
 ---
 
-## Sumário
-
-- [1. Visão Geral](#1-visão-geral)
-- [2. Objetivos da Implementação](#2-objetivos-da-implementação)
-- [3. Ferramentas que Você Irá Utilizar](#3-ferramentas-que-você-irá-utilizar)
-- [4. Estrutura do Projeto](#4-estrutura-do-projeto)
-  - [4.1 Documentos Necessários](#41-documentos-necessários)
-  - [4.2 Estrutura das Sprints](#42-estrutura-das-sprints)
-    - [Bimestre 1: Preparação e Planejamento](#bimestre-1-preparação-e-planejamento)
-    - [Bimestre 2: Desenvolvimento Inicial](#bimestre-2-desenvolvimento-inicial)
-    - [Bimestre 3: Desenvolvimento Intermediário](#bimestre-3-desenvolvimento-intermediário)
-    - [Bimestre 4: Finalização e Entrega](#bimestre-4-finalização-e-entrega)
-- [5. Regras e Políticas do Projeto](#5-regras-e-políticas-do-projeto)
-  - [5.1 Reuniões de Revisão](#51-reuniões-de-revisão)
-  - [5.2 Reuniões de Planejamento](#52-reuniões-de-planejamento)
-  - [5.3 Revisões de Código e Documentação](#53-revisões-de-código-e-documentação)
-  - [5.4 Atualizações no Kanban](#54-atualizações-no-kanban)
-  - [5.5 Adaptações e Mudanças](#55-adaptações-e-mudanças)
-- [6. Finalização do Projeto](#6-finalização-do-projeto)
-
----
 
 **Versão:** 1.0  
 **Data:** dd/mm/aaaa  
