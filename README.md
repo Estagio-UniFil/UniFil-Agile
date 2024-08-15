@@ -22,6 +22,10 @@
 - [6. Finalização do Projeto](#6-finalização-do-projeto)
 
 ---
+## Papel do Orientador da UniFil no Projeto
+
+No contexto deste projeto, o orientador desempenha um papel fundamental, combinando elementos do Product Owner (PO) e do Scrum Master (SM), mas com as adaptações necessárias para o ambiente educacional.
+Como o Scrum é flexível e adaptável, não nos referiremos formalmente aos papéis de Product Owner e Scrum Master. O orientador assumirá ambos os papéis conforme necessário, ajustando as práticas para melhor atender às necessidades e objetivos educacionais do projeto.
 
 ## **1. Visão Geral**
 
@@ -105,15 +109,15 @@ O ano acadêmico será dividido em quatro bimestres, e cada um deles será compo
 
 ### **5.1 Reuniões de Revisão**
 
-No final de cada sprint, você deverá participar de uma reunião de revisão com seu orientador para apresentar o progresso do projeto utilizando as ferramentas GitHub Projects e Gantt.
+No final de cada sprint (semana), você deverá participar de uma reunião de revisão com seu orientador para apresentar o progresso do projeto utilizando as ferramentas GitHub Projects e Gantt.
 
 ### **5.2 Reuniões de Planejamento**
 
-No início de cada bimestre, haverá uma reunião de planejamento para definir as metas das próximas sprints e revisar o backlog do projeto.
+A cada semana haverá uma reunião de planejamento para definir as metas das próximas sprints e revisar o backlog do projeto.
 
 ### **5.3 Revisões de Código e Documentação**
 
-Todo o código e a documentação devem passar por uma revisão por pares antes de cada entrega. Isso garantirá a qualidade e a consistência do trabalho desenvolvido.
+Todo o código e a documentação poderá passar por uma revisão por pares antes de cada entrega, segundo o critério de seu orientador. 
 
 ### **5.4 Atualizações no Kanban**
 
