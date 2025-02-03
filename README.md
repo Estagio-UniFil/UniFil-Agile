@@ -16,24 +16,52 @@ Bem-vindo ao projeto de estágio obrigatório da UniFil Computação! Este repos
 
 ## Estrutura do Projeto
 
-### Documentação
+# Documentação do Projeto
 
-Toda a documentação do projeto está localizada em WiKi. Os principais documentos incluem:
+Esta documentação centraliza todas as informações necessárias para compreender e acompanhar o desenvolvimento do projeto. Ela está organizada no diretório `/docs` e é gerenciada pelo Docusaurus. A seguir, uma visão geral dos principais documentos e instruções para acessar e editar a documentação localmente.
 
-- [`Pedido do Investidor.md`](./Documentação/Pedido%20do%20Investidor.md)
-- [`Visao do Projeto.md`](./Documentação/Visao%20do%20Projeto.md)
-- [`Especificacao Caso de Uso.md`](./Documentação/Especificacao%20Caso%20de%20Uso.md)
-- [`Especificacao Complementar.md`](./Documentação/Especificacao%20Complementar.md)
-- [`Glossario.md`](./Documentação/Glossario.md)
+## Principais Documentos
+
+- **Pedido do Investidor** 
+- **Visão do Projeto** 
+- **Especificação do Caso de Uso**
+- **Especificação Complementar**
+- **Glossário**
+- **Diagrama de Caso de Uso**
+- **Workflow AS-IS e TO-BE**
+- **Diagrama Entidade-Relacionamento Lógico**
+- **Diagrama de Classe**
+- **Diagramas de Sequência**
+- **Diagrama de Estado**
+- **Diagrama de Implantação**
+
+## Acessando e Editando a Documentação
+
+Para acessar e editar a documentação localmente, siga estes passos:
+
+- **Clone o repositório:**  
+  Abra o terminal e execute:
+  `git clone https://seu-repositorio-url.git`
+
+- **Entre no diretório do projeto:**  
+  Execute:
+  `cd nome-do-projeto`
+
+- **Instale as dependências:**  
+  Execute:
+  `npm install`  
+  ou  
+  `yarn install`
+
+- **Edite os arquivos Markdown:**  
+  A documentação está localizada na pasta `/docs`. Use seu editor de texto ou IDE favorito para realizar as alterações necessárias.
+
+- **Inicie o servidor de desenvolvimento do Docusaurus:**  
+  Execute:
+  `npx docusaurus start`  
+  Isso abrirá o site localmente (geralmente em `http://localhost:3000`), permitindo visualizar as alterações em tempo real.
 
 
-- Diagrama de Caso de Uso
-- Worflow AS-IS e TO-BE
-- Diagrama Entidade-Relacionamento Lógico
-- Diagrama de Classe
-- Diagramas de Sequência
-- Diagrama de Estado
-- Diagrama de Implantação
 
 
 ### Estrutura das Sprints
