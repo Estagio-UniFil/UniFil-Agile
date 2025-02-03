@@ -3,18 +3,18 @@
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
-
+   
 import {themes as prismThemes} from 'prism-react-renderer';
- 
+    
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const organizationName = "Estagio-UniFil";
 const projectName = "Template";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Documentação template',
+  title: 'Documentação Template',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-  deploymentBranch: "gh-pages",
+  deploymentBranch: "gh-pages", 
   trailingSlash: false,
   projectName,
   // Set the production url of your site here
@@ -105,7 +105,7 @@ const config = {
               {
                 label: 'Tutorial',
                 to: '/docs/intro',
-              },
+              }, 
             ],
           },
           {
