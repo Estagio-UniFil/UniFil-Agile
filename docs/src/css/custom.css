@@ -1,0 +1,30 @@
+/**
+ * Global overrides for Docusaurus primary color.
+ * As variáveis abaixo definem a cor primária e suas variações
+ * para os modos claro e escuro.
+ */
+
+ :root {
+  --ifm-color-primary: #F29559;
+  --ifm-color-primary-dark: #E0884F;
+  --ifm-color-primary-darker: #C97A45;
+  --ifm-color-primary-darkest: #B06C3B;
+  --ifm-color-primary-light: #F3A66A;
+  --ifm-color-primary-lighter: #F5B67C;
+  --ifm-color-primary-lightest: #F7C68F;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para o modo escuro */
+/* Para manter uma boa legibilidade, você pode optar por manter as mesmas variações ou adaptá-las */
+[data-theme='dark'] {
+  --ifm-color-primary: #F29559;
+  --ifm-color-primary-dark: #E0884F;
+  --ifm-color-primary-darker: #C97A45;
+  --ifm-color-primary-darkest: #B06C3B;
+  --ifm-color-primary-light: #F3A66A;
+  --ifm-color-primary-lighter: #F5B67C;
+  --ifm-color-primary-lightest: #F7C68F;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,13 @@
+{
+  "position": 3,
+  "label": "Diagramas",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Diagramas Gerais"
+  },
+  "customProps": {
+    "description": "Diagramas que ilustram a arquitetura e funcionalidades do sistema."
+  }
+}

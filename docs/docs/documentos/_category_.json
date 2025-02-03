@@ -1,0 +1,13 @@
+{
+  "position": 1,
+  "label": "Artefatos",
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Documentos Gerais"
+  },
+  "customProps": {
+    "description": "Visão geral, introdução e demais documentos gerais do projeto."
+  }
+}

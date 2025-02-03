@@ -1,0 +1,13 @@
+{
+  "position": 2,
+  "label": "Caso de Uso Y",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Caso de Uso Y"
+  },
+  "customProps": {
+    "description": "Documentos e diagramas relacionados ao Caso de Uso Y."
+  }
+}
