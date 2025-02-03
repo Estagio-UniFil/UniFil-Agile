@@ -21,8 +21,10 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Verificar estrutura de arquivos
-        run: ls -R  # Ajuda a depurar se os arquivos estão onde deveriam estar
+      - name: Verificar estrutura de arquivos dentro de docs/
+        run: |
+          echo "📂 Estrutura de arquivos dentro de docs/"
+          ls -l docs/
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -33,15 +35,18 @@ jobs:
 
       - name: Ajustar baseUrl dinamicamente
         run: |
-          if [ -f docs/docusaurus.config.js ]; then
+          echo "📂 Verificando arquivos dentro da pasta docs/"
+          ls -l  # Listar arquivos para depuração
+
+          if [ -f "docusaurus.config.js" ]; then
             BASE_URL="/${GITHUB_REPOSITORY#*/}/"
             if [[ "$GITHUB_REPOSITORY" == "username/username.github.io" ]]; then
               BASE_URL="/"
             fi
-            sed -i "s|baseUrl: '.*'|baseUrl: '$BASE_URL'|" docs/docusaurus.config.js
+            sed -i "s|baseUrl: '.*'|baseUrl: '$BASE_URL'|" docusaurus.config.js
             echo "✅ baseUrl ajustado para: $BASE_URL"
           else
-            echo "❌ ERRO: docusaurus.config.js não encontrado dentro de docs/"
+            echo "❌ ERRO: docusaurus.config.js não encontrado!"
             exit 1
           fi
         working-directory: docs
