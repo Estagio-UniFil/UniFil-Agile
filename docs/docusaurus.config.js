@@ -15,7 +15,7 @@ const config = {
   title: 'Documentação template',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-  projectName: 'Template', // Usually your repo name.
+  projectName: 'Template/docs', // Usually your repo name.
 
   // Set the production url of your site here
   url: `https://${organizationName}.github.io`,
