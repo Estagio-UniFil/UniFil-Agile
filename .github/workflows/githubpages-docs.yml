@@ -19,18 +19,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4  # Atualizado para v4
         with:
-          node-version: 18  # Atualizado para versão mais recente recomendada
+          node-version: 18  # Versão recomendada do Node.js
           cache: yarn
+          cache-dependency-path: docs/yarn.lock  # Aponta para o lockfile dentro da pasta docs
 
       - name: Install dependencies
-        run: |
-          cd docs
-          yarn install --frozen-lockfile --non-interactive
+        run: yarn install --frozen-lockfile --non-interactive
+        working-directory: docs  # Define o diretório correto
 
       - name: Build
-        run: |
-          cd docs
-          yarn build
+        run: yarn build
+        working-directory: docs  # Garante que o build aconteça na pasta correta
       # 👆 Build steps
 
       - name: Setup Pages
