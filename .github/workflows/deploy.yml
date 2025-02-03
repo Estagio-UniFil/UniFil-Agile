@@ -3,7 +3,7 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # Altere para a branch principal do seu projeto, se necessário
+      - main  # Ajuste para a branch principal do seu projeto
 
 permissions:
   contents: read
@@ -34,9 +34,10 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Fazer upload dos arquivos estáticos
-        uses: actions/upload-pages-artifact@v2  # Atualizado para v2
+        uses: actions/upload-artifact@v4  # Atualizado para v4
         with:
-          path: documentation/build  # O diretório correto onde o Docusaurus gera os arquivos
+          name: github-pages
+          path: documentation/build  # Diretório onde o Docusaurus gera os arquivos
 
       - name: Publicar no GitHub Pages
-        uses: actions/deploy-pages@v2  # Atualizado para v2
+        uses: actions/deploy-pages@v2
