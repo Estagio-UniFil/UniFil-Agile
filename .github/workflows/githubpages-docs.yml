@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy Docusaurus to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Substitua pela branch correta, se necessário
+      - main  # Altere para a branch correta, se necessário
 
 jobs:
   deploy:
@@ -11,36 +11,34 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4  # Atualizado para v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-      # 👇 Build steps
-      - name: Set up Node.js
-        uses: actions/setup-node@v4  # Atualizado para v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18  # Versão recomendada do Node.js
+          node-version: 18
           cache: npm
-          cache-dependency-path: docs/package-lock.json  # Para armazenar cache corretamente
+          cache-dependency-path: docs/package-lock.json  # Define o caminho correto para o cache
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm ci
-        working-directory: docs  # Define o diretório correto
+        working-directory: docs  # Garante que o npm rode na pasta correta
 
-      - name: Build
+      - name: Executar build do Docusaurus
         run: npm run build
-        working-directory: docs  # Garante que o build aconteça na pasta correta
-      # 👆 Build steps
+        working-directory: docs  # Executa o build dentro da pasta docs
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4  # Atualizado para v4
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # Atualizado para v3
+      - name: Fazer upload dos arquivos para o GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          # 👇 Especificando a pasta de saída dentro de docs
-          path: docs/build
+          path: docs/build  # Garante que a pasta build do Docusaurus seja enviada
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy para GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  # Atualizado para v4
+        uses: actions/deploy-pages@v4
