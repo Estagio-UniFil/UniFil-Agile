@@ -3,7 +3,7 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # Ajuste para a branch principal do seu repositório
+      - main  # Altere para a branch principal do seu projeto, se necessário
 
 permissions:
   contents: read
@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Ajuste conforme necessário
+          node-version: '18'  # Ajuste conforme necessário
 
       - name: Instalar dependências
         working-directory: documentation
@@ -31,12 +31,12 @@ jobs:
         run: npm run build
 
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
-      - name: Fazer deploy para GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Fazer upload dos arquivos estáticos
+        uses: actions/upload-pages-artifact@v2  # Atualizado para v2
         with:
-          path: documentation/build  #  Diretório onde o Docusaurus gera o site
+          path: documentation/build  # O diretório correto onde o Docusaurus gera os arquivos
 
       - name: Publicar no GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2  # Atualizado para v2
