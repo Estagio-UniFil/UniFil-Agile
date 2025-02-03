@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
     
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const organizationName = "Estagio-UniFil";
-const projectName = "Template";
+const projectName = "Template/documentation";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Documentação Template',
