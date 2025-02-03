@@ -1,12 +1,20 @@
-name: Diagnose Docusaurus Build
+name: Deploy Docusaurus to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Ajuste para a branch principal
+      - main  # Altere para a branch principal do seu repositório
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  diagnose:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -20,32 +28,52 @@ jobs:
           cache: npm
           cache-dependency-path: docs/package-lock.json
 
+      - name: Ajustar baseUrl dinamicamente
+        run: |
+          BASE_URL="/${GITHUB_REPOSITORY#*/}/"
+          if [[ "$GITHUB_REPOSITORY" == "username/username.github.io" ]]; then
+            BASE_URL="/"
+          fi
+          sed -i "s|baseUrl: '.*'|baseUrl: '$BASE_URL'|" docs/docusaurus.config.js
+        working-directory: docs
+
       - name: Instalar dependências
         run: npm ci
         working-directory: docs
 
-      - name: Executar build e detectar links quebrados
+      - name: Executar build do Docusaurus
+        id: build
         run: |
           echo "🔍 Rodando diagnóstico de links quebrados..."
-          npm run build -- --no-minify || echo "❌ Build falhou devido a links quebrados!"
+          npm run build -- --no-minify 2>&1 | tee build.log
         working-directory: docs
-        continue-on-error: true  # Continua o workflow mesmo se encontrar links quebrados
+        continue-on-error: true
 
       - name: Gerar relatório de links quebrados
         if: always()
         run: |
           echo "📊 Relatório de links quebrados:"
-          grep -E "Broken link on source page path" docs/build.log || echo "✅ Nenhum link quebrado encontrado!"
-        working-directory: docs
+          cat docs/build.log | grep "Broken link" || echo "✅ Nenhum link quebrado encontrado!"
         continue-on-error: true
 
       - name: Forçar falha se houver links quebrados críticos
         if: always()
         run: |
-          if grep -q "Broken link on source page path" docs/build.log; then
+          if grep -q "Broken link" docs/build.log; then
             echo "❌ Links quebrados encontrados! Corrija-os antes do deploy."
             exit 1
           else
             echo "✅ Nenhum erro crítico encontrado."
           fi
-        working-directory: docs
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Fazer upload dos arquivos para o GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/build  # Garante que a pasta correta seja enviada
+
+      - name: Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
