@@ -20,22 +20,22 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: docs/package-lock.json
+          cache-dependency-path: documentation/package-lock.json
 
       - name: Instalar dependências
         run: |
-          cd docs
+          cd documentation
           npm install
 
       - name: Construir o site
         run: |
-          cd docs
+          cd documentation
           npm run build
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build
+          publish_dir: documentation/build
           publish_branch: gh-pages
           cname: "" # Adicione um domínio customizado aqui, se necessário
