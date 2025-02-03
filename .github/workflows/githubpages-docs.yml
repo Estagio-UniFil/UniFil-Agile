@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Substitua 'main' pela branch correta, se necessário
+      - main  # Substitua pela branch correta, se necessário
 
 jobs:
   deploy:
@@ -13,29 +13,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Atualizado para v4
+
       # 👇 Build steps
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Atualizado para v4
         with:
-          node-version: 16.x
+          node-version: 18  # Atualizado para versão mais recente recomendada
           cache: yarn
+
       - name: Install dependencies
         run: |
           cd docs
           yarn install --frozen-lockfile --non-interactive
+
       - name: Build
         run: |
           cd docs
           yarn build
       # 👆 Build steps
+
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4  # Atualizado para v4
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3  # Atualizado para v3
         with:
           # 👇 Especificando a pasta de saída dentro de docs
           path: docs/build
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4  # Atualizado para v4
