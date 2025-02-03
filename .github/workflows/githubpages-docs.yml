@@ -20,15 +20,15 @@ jobs:
         uses: actions/setup-node@v4  # Atualizado para v4
         with:
           node-version: 18  # Versão recomendada do Node.js
-          cache: yarn
-          cache-dependency-path: docs/yarn.lock  # Aponta para o lockfile dentro da pasta docs
+          cache: npm
+          cache-dependency-path: docs/package-lock.json  # Para armazenar cache corretamente
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --non-interactive
+        run: npm ci
         working-directory: docs  # Define o diretório correto
 
       - name: Build
-        run: yarn build
+        run: npm run build
         working-directory: docs  # Garante que o build aconteça na pasta correta
       # 👆 Build steps
 
