@@ -8,15 +8,13 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const organizationName = "Estagio-UniFil";
-const projectName = "Template";
+const projectName = "Template/docs";// Usually your repo_name/docs.  
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Documentação template',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-  projectName: 'Template/docs', // Usually your repo name.
-
   // Set the production url of your site here
   url: `https://${organizationName}.github.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
