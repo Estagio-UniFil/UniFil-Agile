@@ -3,7 +3,7 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # Altere para a branch principal do seu repositório
+      - main
 
 permissions:
   contents: read
@@ -21,6 +21,9 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
+      - name: Verificar estrutura de arquivos
+        run: ls -R  # Ajuda a depurar se os arquivos estão onde deveriam estar
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,11 +33,17 @@ jobs:
 
       - name: Ajustar baseUrl dinamicamente
         run: |
-          BASE_URL="/${GITHUB_REPOSITORY#*/}/"
-          if [[ "$GITHUB_REPOSITORY" == "username/username.github.io" ]]; then
-            BASE_URL="/"
+          if [ -f docs/docusaurus.config.js ]; then
+            BASE_URL="/${GITHUB_REPOSITORY#*/}/"
+            if [[ "$GITHUB_REPOSITORY" == "username/username.github.io" ]]; then
+              BASE_URL="/"
+            fi
+            sed -i "s|baseUrl: '.*'|baseUrl: '$BASE_URL'|" docs/docusaurus.config.js
+            echo "✅ baseUrl ajustado para: $BASE_URL"
+          else
+            echo "❌ ERRO: docusaurus.config.js não encontrado dentro de docs/"
+            exit 1
           fi
-          sed -i "s|baseUrl: '.*'|baseUrl: '$BASE_URL'|" docs/docusaurus.config.js
         working-directory: docs
 
       - name: Instalar dependências
@@ -72,7 +81,7 @@ jobs:
       - name: Fazer upload dos arquivos para o GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/build  # Garante que a pasta correta seja enviada
+          path: docs/build
 
       - name: Deploy para GitHub Pages
         id: deployment
