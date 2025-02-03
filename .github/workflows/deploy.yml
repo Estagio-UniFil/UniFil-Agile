@@ -3,39 +3,32 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main  # Altere se seu branch principal tiver outro nome
-
-  workflow_dispatch: # Permite rodar o workflow manualmente
+      - main  # Substitua pela branch principal do seu repositório, se necessário
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do código
+      - name: Checkout do repositório
         uses: actions/checkout@v3
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: 'npm'
-          cache-dependency-path: documentation/package-lock.json
+          node-version: '18'  # Ajuste a versão do Node.js conforme necessário
 
       - name: Instalar dependências
-        run: |
-          cd documentation
-          npm install
+        working-directory: documentation
+        run: npm install
 
-      - name: Construir o site
-        run: |
-          cd documentation
-          npm run build
+      - name: Build do Docusaurus
+        working-directory: documentation
+        run: npm run build
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: documentation/build
-          publish_branch: gh-pages
-          cname: "" # Adicione um domínio customizado aqui, se necessário
+          publish_dir: documentation/build  # O diretório correto onde Docusaurus gera os arquivos estáticos
+          publish_branch: gh-pages  # Branch onde o site será publicado
+          cname: ''  # Se for usar um domínio customizado, coloque o domínio aqui
