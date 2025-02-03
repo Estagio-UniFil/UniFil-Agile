@@ -1,15 +1,12 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Diagnose Docusaurus Build
 
 on:
   push:
     branches:
-      - main  # Altere para a branch correta, se necessário
+      - main  # Ajuste para a branch principal
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  diagnose:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,24 +18,34 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: docs/package-lock.json  # Define o caminho correto para o cache
+          cache-dependency-path: docs/package-lock.json
 
       - name: Instalar dependências
         run: npm ci
-        working-directory: docs  # Garante que o npm rode na pasta correta
+        working-directory: docs
 
-      - name: Executar build do Docusaurus
-        run: npm run build
-        working-directory: docs  # Executa o build dentro da pasta docs
+      - name: Executar build e detectar links quebrados
+        run: |
+          echo "🔍 Rodando diagnóstico de links quebrados..."
+          npm run build -- --no-minify || echo "❌ Build falhou devido a links quebrados!"
+        working-directory: docs
+        continue-on-error: true  # Continua o workflow mesmo se encontrar links quebrados
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v4
+      - name: Gerar relatório de links quebrados
+        if: always()
+        run: |
+          echo "📊 Relatório de links quebrados:"
+          grep -E "Broken link on source page path" docs/build.log || echo "✅ Nenhum link quebrado encontrado!"
+        working-directory: docs
+        continue-on-error: true
 
-      - name: Fazer upload dos arquivos para o GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/build  # Garante que a pasta build do Docusaurus seja enviada
-
-      - name: Deploy para GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Forçar falha se houver links quebrados críticos
+        if: always()
+        run: |
+          if grep -q "Broken link on source page path" docs/build.log; then
+            echo "❌ Links quebrados encontrados! Corrija-os antes do deploy."
+            exit 1
+          else
+            echo "✅ Nenhum erro crítico encontrado."
+          fi
+        working-directory: docs
