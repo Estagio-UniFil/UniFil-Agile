@@ -15,6 +15,7 @@ const config = {
   title: 'Documentação template',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
+  projectName,
   // Set the production url of your site here
   url: `https://${organizationName}.github.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
