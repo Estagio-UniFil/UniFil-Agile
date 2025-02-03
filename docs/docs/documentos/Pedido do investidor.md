@@ -16,28 +16,6 @@ status: "Em desenvolvimento"
 
 ---
 
-## Índice
-
-1. [Introdução](#introdução)
-   1. [Objetivo](#objetivo)
-   2. [Escopo](#escopo)
-   3. [Definições, Acrônimos e Abreviações](#definições-acrônimos-e-abreviações)
-   4. [Referências](#referências)
-   5. [Visão Geral](#visão-geral)
-2. [Perfil do Investidor ou Usuário](#perfil-do-investidor-ou-usuário)
-3. [Avaliação do Problema](#avaliação-do-problema)
-4. [Entendimento do Ambiente do Usuário](#entendimento-do-ambiente-do-usuário)
-5. [Recapitulação para Entendimento](#recapitulação-para-entendimento)
-6. [Entradas do Analista](#entradas-do-analista)
-7. [Avaliação da Solução Proposta](#avaliação-da-solução-proposta)
-8. [Avaliação da Oportunidade](#avaliação-da-oportunidade)
-9. [Avaliação de Confiabilidade, Desempenho e Suporte](#avaliação-de-confiabilidade-desempenho-e-suporte)
-   1. [Outros Requisitos](#outros-requisitos)
-10. [Conclusão](#conclusão)
-11. [Resumo do Analista](#resumo-do-analista)
-
----
-
 ## Introdução
 
 A introdução fornece uma visão geral do documento, incluindo objetivo, escopo, definições, acrônimos, abreviações, referências e uma visão geral da coleta de requisitos do investidor.
